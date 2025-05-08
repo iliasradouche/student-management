@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.student.management.controllers.AddStudentController">
+    <children>
+        <VBox spacing="15" alignment="CENTER" prefWidth="400">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="Add New Student" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <TextField fx:id="nameField" promptText="Full Name" prefWidth="300"/>
+            <TextField fx:id="emailField" promptText="Email" prefWidth="300"/>
+            <TextField fx:id="phoneField" promptText="Phone Number" prefWidth="300"/>
+            <DatePicker fx:id="dobPicker" promptText="Date of Birth" prefWidth="300"/>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Save" onAction="#handleSaveStudent" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                <Button text="Cancel" onAction="#handleCancel" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+            </HBox>
+
+            <Label fx:id="errorMessage" textFill="red" visible="false"/>
+        </VBox>
+    </children>
+</AnchorPane>
