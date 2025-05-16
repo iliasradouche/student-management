@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="ContentPane" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.student.management.controllers.GradesSectionController">
+
+    <VBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" spacing="15" style="-fx-padding: 20;">
+
+        <!-- Grades Management Section -->
+        <Label text="Gestion des Notes" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+        <TableView fx:id="gradeTable" VBox.vgrow="ALWAYS" style="-fx-background-color: #FFFFFF;">
+            <columns>
+                <TableColumn text="ID" fx:id="gradeIdColumn" prefWidth="50"/>
+                <TableColumn text="Étudiant" fx:id="gradeStudentColumn" prefWidth="150"/>
+                <TableColumn text="Cours" fx:id="gradeCourseColumn" prefWidth="200"/>
+                <TableColumn text="Notes" fx:id="gradeValueColumn" prefWidth="100"/>
+                <TableColumn text="Semestre" fx:id="gradeSemesterColumn" prefWidth="150"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <Button text="Ajouter" onAction="#handleAddGrade" prefWidth="120"/>
+            <Button text="Modifier" onAction="#handleEditGrade" prefWidth="120"/>
+            <Button text="Supprimer" onAction="#handleDeleteGrade" prefWidth="120"/>
+            <Button text="Rafraîchir" onAction="#handleRefreshGrades" prefWidth="120"/>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

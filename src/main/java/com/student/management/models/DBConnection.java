@@ -12,10 +12,10 @@ public class DBConnection {
     public static Connection getConnection() {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("✅ Database connected successfully!");
+            System.out.println("Database connected successfully!");
             return connection;
         } catch (SQLException e) {
-            System.err.println("❌ Database connection failed: " + e.getMessage());
+            System.err.println("Database connection failed: " + e.getMessage());
             return null;
         }
     }

@@ -55,13 +55,21 @@ public class LoginController {
         }
     }
 
-    // Method to load the Dashboard
+    // Method to load the Dashboard and maximize it
     private void loadDashboard() {
         try {
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/views/Dashboard.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("Student Management System - Dashboard");
+            // Get current stage (Login window)
+            Stage loginStage = (Stage) usernameField.getScene().getWindow();
+            loginStage.close(); // Close the login window
+
+            // Load Dashboard
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Dashboard.fxml"));
+            Parent root = loader.load();
+            Stage dashboardStage = new Stage();
+            dashboardStage.setScene(new Scene(root));
+            dashboardStage.setTitle("Student Management System - Dashboard");
+            dashboardStage.setMaximized(true); // Set the dashboard to be maximized
+            dashboardStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }

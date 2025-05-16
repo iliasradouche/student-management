@@ -16,7 +16,7 @@ public class Main extends Application {
             // Load the Login Screen FXML
             Parent root = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Student Management System - Login");
+            primaryStage.setTitle("gestion des étudiants - Se Connecter");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {

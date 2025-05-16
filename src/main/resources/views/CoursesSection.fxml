@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.student.management.controllers.CoursesSectionController">
+
+    <VBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" spacing="15" style="-fx-padding: 20;">
+
+        <!-- Course Management Section -->
+        <Label text="Gestion des Cours" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+        <TableView fx:id="courseTable" VBox.vgrow="ALWAYS" style="-fx-background-color: #FFFFFF;">
+            <columns>
+                <TableColumn text="ID" fx:id="courseIdColumn" prefWidth="50"/>
+                <TableColumn text="Nom du cours" fx:id="courseNameColumn" prefWidth="200"/>
+                <TableColumn text="Description" fx:id="courseDescriptionColumn" prefWidth="300"/>
+                <TableColumn text="Crédits" fx:id="courseCreditsColumn" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <Button text="Ajouter" onAction="#handleAddCourse" prefWidth="100"/>
+            <Button text="Modifier" onAction="#handleEditCourse" prefWidth="100"/>
+            <Button text="Supprimer" onAction="#handleDeleteCourse" prefWidth="100"/>
+            <Button text="Rafraîchir" onAction="#handleRefreshCourses" prefWidth="100"/>
+        </HBox>
+
+        <!-- Enrollment Section -->
+        <Label text="Étudiants inscrits" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 10 0 0 0;"/>
+
+        <TableView fx:id="enrollmentTable" VBox.vgrow="ALWAYS" style="-fx-background-color: #FFFFFF;">
+            <columns>
+                <TableColumn text="Student ID" fx:id="enrolledStudentIdColumn" prefWidth="100"/>
+                <TableColumn text="Student Name" fx:id="enrolledStudentNameColumn" prefWidth="200"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+            <Button text="Inscrire" onAction="#handleEnrollStudent" prefWidth="150"/>
+            <Button text="Supprimer l'inscription" onAction="#handleRemoveEnrollment" prefWidth="150"/>
+            <Button text="Rafraîchir" onAction="#handleRefreshEnrollment" prefWidth="150"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

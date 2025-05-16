@@ -7,113 +7,46 @@
 <BorderPane xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.student.management.controllers.DashboardController">
 
-    <!-- Header Section -->
-    <top>
-        <VBox spacing="20" alignment="CENTER">
-            <Label text="Student Management Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <!-- Sidebar Section -->
+    <left>
+        <VBox spacing="15" alignment="CENTER_LEFT" style="-fx-padding: 20; -fx-background-color: #2E3440; -fx-pref-width: 220;">
+            <Label text="Menu" style="-fx-text-fill: #ECEFF4; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <Button text="Étudiants" onAction="#showStudentsSection"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #ECEFF4;
+                           -fx-font-size: 18px;
+                           -fx-padding: 10 15;
+                           -fx-border-width: 0 0 1 0;
+                           -fx-border-color: #434C5E;
+                           -fx-cursor: hand;"/>
+
+            <Button text="Cours" onAction="#showCoursesSection"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #ECEFF4;
+                           -fx-font-size: 18px;
+                           -fx-padding: 10 15;
+                           -fx-border-width: 0 0 1 0;
+                           -fx-border-color: #434C5E;
+                           -fx-cursor: hand;"/>
+
+            <Button text="Notes" onAction="#showGradesSection"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #ECEFF4;
+                           -fx-font-size: 18px;
+                           -fx-padding: 10 15;
+                           -fx-border-width: 0 0 1 0;
+                           -fx-border-color: #434C5E;
+                           -fx-cursor: hand;"/>
         </VBox>
-    </top>
+    </left>
 
-    <!-- Center Section (Main Content) -->
+    <!-- Main Content Section -->
     <center>
-        <TabPane>
-
-            <!-- Student Management Tab -->
-            <Tab text="Students">
-                <VBox spacing="15">
-                    <padding>
-                        <Insets top="10" right="10" bottom="10" left="10"/>
-                    </padding>
-
-                    <HBox spacing="10" alignment="CENTER_LEFT">
-                        <TextField fx:id="searchField" promptText="Search by Name, Email, or Phone" onKeyReleased="#handleSearch" prefWidth="300"/>
-                        <Button text="Clear Search" onAction="#handleClearSearch"/>
-                    </HBox>
-
-                    <TableView fx:id="studentTable" prefHeight="300">
-                        <columns>
-                            <TableColumn text="ID" fx:id="idColumn" prefWidth="50"/>
-                            <TableColumn text="Name" fx:id="nameColumn" prefWidth="150"/>
-                            <TableColumn text="Email" fx:id="emailColumn" prefWidth="200"/>
-                            <TableColumn text="Phone" fx:id="phoneColumn" prefWidth="150"/>
-                            <TableColumn text="Date of Birth" fx:id="dobColumn" prefWidth="150"/>
-                        </columns>
-                    </TableView>
-
-                    <HBox spacing="15" alignment="CENTER">
-                        <Button text="Add Student" onAction="#handleAddStudent"/>
-                        <Button text="Edit Student" onAction="#handleEditStudent"/>
-                        <Button text="Delete Student" onAction="#handleDeleteStudent"/>
-                        <Button text="Refresh" onAction="#handleRefresh"/>
-                    </HBox>
-                </VBox>
-            </Tab>
-
-            <!-- Course Management Tab -->
-            <Tab text="Courses">
-                <VBox spacing="15">
-                    <padding>
-                        <Insets top="10" right="10" bottom="10" left="10"/>
-                    </padding>
-
-                    <TableView fx:id="courseTable" prefHeight="300">
-                        <columns>
-                            <TableColumn text="ID" fx:id="courseIdColumn" prefWidth="50"/>
-                            <TableColumn text="Course Name" fx:id="courseNameColumn" prefWidth="200"/>
-                            <TableColumn text="Description" fx:id="courseDescriptionColumn" prefWidth="250"/>
-                            <TableColumn text="Credits" fx:id="courseCreditsColumn" prefWidth="100"/>
-                        </columns>
-                    </TableView>
-
-                    <HBox spacing="15" alignment="CENTER">
-                        <Button text="Add Course" onAction="#handleAddCourse"/>
-                        <Button text="Edit Course" onAction="#handleEditCourse"/>
-                        <Button text="Delete Course" onAction="#handleDeleteCourse"/>
-                        <Button text="Refresh" onAction="#handleRefreshCourses"/>
-                    </HBox>
-
-                    <Label text="Enrolled Students" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-                    <TableView fx:id="enrollmentTable" prefHeight="200">
-                        <columns>
-                            <TableColumn text="Student ID" fx:id="enrolledStudentIdColumn" prefWidth="100"/>
-                            <TableColumn text="Student Name" fx:id="enrolledStudentNameColumn" prefWidth="200"/>
-                        </columns>
-                    </TableView>
-
-                    <HBox spacing="15" alignment="CENTER">
-                        <Button text="Enroll Student" onAction="#handleEnrollStudent"/>
-                        <Button text="Remove Enrollment" onAction="#handleRemoveEnrollment"/>
-                        <Button text="Refresh Enrollment" onAction="#handleRefreshEnrollment"/>
-                    </HBox>
-                </VBox>
-            </Tab>
-
-            <!-- Grade Management Tab -->
-            <Tab text="Grades">
-                <VBox spacing="15">
-                    <padding>
-                        <Insets top="10" right="10" bottom="10" left="10"/>
-                    </padding>
-
-                    <TableView fx:id="gradeTable" prefHeight="300">
-                        <columns>
-                            <TableColumn text="ID" fx:id="gradeIdColumn" prefWidth="50"/>
-                            <TableColumn text="Student" fx:id="gradeStudentColumn" prefWidth="150"/>
-                            <TableColumn text="Course" fx:id="gradeCourseColumn" prefWidth="150"/>
-                            <TableColumn text="Grade" fx:id="gradeValueColumn" prefWidth="100"/>
-                            <TableColumn text="Semester" fx:id="gradeSemesterColumn" prefWidth="150"/>
-                        </columns>
-                    </TableView>
-
-                    <HBox spacing="15" alignment="CENTER">
-                        <Button text="Add Grade" onAction="#handleAddGrade"/>
-                        <Button text="Edit Grade" onAction="#handleEditGrade"/>
-                        <Button text="Delete Grade" onAction="#handleDeleteGrade"/>
-                        <Button text="Refresh" onAction="#handleRefreshGrades"/>
-                    </HBox>
-                </VBox>
-            </Tab>
-
-        </TabPane>
+        <AnchorPane fx:id="ContentPane" style="-fx-padding: 20;">
+            <Label text="Bienvenue dans le système de gestion des étudiants"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </AnchorPane>
     </center>
+
 </BorderPane>

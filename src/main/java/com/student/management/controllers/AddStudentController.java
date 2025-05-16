@@ -24,14 +24,28 @@ public class AddStudentController {
     // Handle Save Student Button
     @FXML
     private void handleSaveStudent(ActionEvent event) {
-        String name = nameField.getText();
-        String email = emailField.getText();
-        String phone = phoneField.getText();
+        String name = nameField.getText().trim();
+        String email = emailField.getText().trim();
+        String phone = phoneField.getText().trim();
         LocalDate dob = dobPicker.getValue();
 
         if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || dob == null) {
-            errorMessage.setText("All fields are required!");
-            errorMessage.setVisible(true);
+            showError("All fields are required!");
+            return;
+        }
+
+        if (!name.matches("[a-zA-Z\s]+")) {
+            showError("Name must contain only letters.");
+            return;
+        }
+
+        if (!email.matches("^[\\w-\\.]+@[\\w-]+\\.[a-z]{2,4}$")) {
+            showError("Invalid email format.");
+            return;
+        }
+
+        if (!phone.matches("\\d{8,15}")) {
+            showError("Phone must contain only digits (8-15). ");
             return;
         }
 
@@ -44,8 +58,7 @@ public class AddStudentController {
             closeWindow();
             showAlert("Student Added", "The student was successfully added.");
         } else {
-            errorMessage.setText("Failed to add student. Try again.");
-            errorMessage.setVisible(true);
+            showError("Failed to add student. Try again.");
         }
     }
 
@@ -59,6 +72,13 @@ public class AddStudentController {
     private void closeWindow() {
         Stage stage = (Stage) nameField.getScene().getWindow();
         stage.close();
+    }
+
+    // Utility Method for Error Messages
+    private void showError(String message) {
+        errorMessage.setText(message);
+        errorMessage.setVisible(true);
+        errorMessage.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
     }
 
     // Utility Method for Alert Messages
