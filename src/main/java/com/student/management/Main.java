@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 
 public class Main extends Application {
+
     @Override
     public void start(Stage primaryStage) {
         try {

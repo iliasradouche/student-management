@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -137,6 +138,31 @@ public class StudentsSectionController {
     }
 
     @FXML
+    private void handleViewProfile() {
+        Student selectedStudent = studentTable.getSelectionModel().getSelectedItem();
+        if (selectedStudent == null) {
+            showAlert("No Student Selected", "Please select a student to view their profile.");
+            return;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/StudentProfile.fxml"));
+            Parent profileRoot = loader.load();
+
+            // Passing the selected student to the profile controller
+            StudentProfileController profileController = loader.getController();
+            profileController.setStudent(selectedStudent);
+
+            Stage profileStage = new Stage();
+            profileStage.setTitle("Student Profile");
+            profileStage.setScene(new Scene(profileRoot));
+            profileStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load the profile view.");
+        }
+    }
+    @FXML
     private void handleRefresh() {
         loadStudents();
     }
@@ -149,4 +175,6 @@ public class StudentsSectionController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 }

@@ -56,4 +56,20 @@ public class CourseDAO {
             return false;
         }
     }
+
+    // Method to get total courses
+    public static int getTotalCourses() {
+        try (Connection connection = DBConnection.getConnection()) {
+            String query = "SELECT COUNT(*) FROM courses";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

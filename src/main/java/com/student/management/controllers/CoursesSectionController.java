@@ -23,7 +23,6 @@ public class CoursesSectionController {
     private TableColumn<Course, String> courseDescriptionColumn;
     @FXML
     private TableColumn<Course, Integer> courseCreditsColumn;
-
     @FXML
     private TableView<Enrollment> enrollmentTable;
     @FXML
@@ -250,6 +249,7 @@ public class CoursesSectionController {
         });
     }
 
+    @FXML
     private void loadEnrollments() {
         Course selectedCourse = courseTable.getSelectionModel().getSelectedItem();
         if (selectedCourse == null) {
@@ -263,8 +263,6 @@ public class CoursesSectionController {
         enrollmentTable.setItems(enrollmentList);
     }
 
-
-    // Method to Get Students Not Enrolled in Selected Course
     private List<Student> getAvailableStudentsForCourse(int courseId) {
         List<Student> allStudents = StudentDAO.getAllStudents();
         List<Enrollment> enrolledStudents = EnrollmentDAO.getEnrolledStudents(courseId);

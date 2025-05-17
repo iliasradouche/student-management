@@ -6,17 +6,26 @@ public class Student {
     private String email;
     private String phone;
     private String dob;
+    private String address;
+    private String parentName;
+    private String parentPhone;
+    private String profileImagePath;
 
-    // Constructor
-    public Student(int id, String name, String email, String phone, String dob) {
+    // Full constructor with profile image path
+    public Student(int id, String name, String email, String phone, String dob,
+                   String address, String parentName, String parentPhone, String profileImagePath) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.dob = dob;
+        this.address = address;
+        this.parentName = parentName;
+        this.parentPhone = parentPhone;
+        this.profileImagePath = profileImagePath;
     }
 
-    // Getters and Setters
+    // Getter and Setter methods
     public int getId() {
         return id;
     }
@@ -57,9 +66,35 @@ public class Student {
         this.dob = dob;
     }
 
-    // Enhanced toString() method for ComboBox
-    @Override
-    public String toString() {
-        return name + " (ID: " + id + ")";
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public String getParentPhone() {
+        return parentPhone;
+    }
+
+    public void setParentPhone(String parentPhone) {
+        this.parentPhone = parentPhone;
+    }
+
+    public String getProfileImagePath() {
+        return profileImagePath;
+    }
+
+    public void setProfileImagePath(String profileImagePath) {
+        this.profileImagePath = profileImagePath;
     }
 }

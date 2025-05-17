@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.student.management.controllers.AddStudentController">
@@ -13,6 +14,19 @@
             <TextField fx:id="emailField" promptText="✉️ E-mail" prefWidth="300" style="-fx-background-color: #D8DEE9; -fx-padding: 5px;"/>
             <TextField fx:id="phoneField" promptText="📞 Téléphone" prefWidth="300" style="-fx-background-color: #D8DEE9; -fx-padding: 5px;"/>
             <DatePicker fx:id="dobPicker" promptText="📅 Date de naissance" prefWidth="300" style="-fx-background-color: #D8DEE9;"/>
+
+            <Separator style="-fx-background-color: #4C566A;"/>
+
+            <TextField fx:id="addressField" promptText="🏡 Adresse" prefWidth="300" style="-fx-background-color: #D8DEE9; -fx-padding: 5px;"/>
+            <TextField fx:id="parentNameField" promptText="👨‍👩‍👧 Parent/Guardian" prefWidth="300" style="-fx-background-color: #D8DEE9; -fx-padding: 5px;"/>
+            <TextField fx:id="parentPhoneField" promptText="📞 Téléphone du Parent" prefWidth="300" style="-fx-background-color: #D8DEE9; -fx-padding: 5px;"/>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="📁 Choisir une image" onAction="#handleUploadPicture" style="-fx-background-color: #5E81AC; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <ImageView fx:id="profileImage" fitWidth="80" fitHeight="80" style="-fx-background-color: #D8DEE9; -fx-border-radius: 40px;"/>
+            </HBox>
+
+            <Separator style="-fx-background-color: #4C566A;"/>
 
             <HBox spacing="15" alignment="CENTER">
                 <Button text="✅ Enregistrer" onAction="#handleSaveStudent" style="-fx-background-color: #A3BE8C; -fx-text-fill: white; -fx-font-weight: bold;"/>

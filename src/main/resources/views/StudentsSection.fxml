@@ -24,11 +24,11 @@
 
         <TableView fx:id="studentTable" VBox.vgrow="ALWAYS">
             <columns>
-                <TableColumn text="ID" fx:id="idColumn" minWidth="50" />
-                <TableColumn text="Nom" fx:id="nameColumn" minWidth="150" />
-                <TableColumn text="E-mail" fx:id="emailColumn" minWidth="200" />
-                <TableColumn text="Téléphone" fx:id="phoneColumn" minWidth="150" />
-                <TableColumn text="Date de naissance" fx:id="dobColumn" minWidth="150" />
+                <TableColumn text="ID" fx:id="idColumn" minWidth="50"/>
+                <TableColumn text="Nom" fx:id="nameColumn" minWidth="150"/>
+                <TableColumn text="E-mail" fx:id="emailColumn" minWidth="200"/>
+                <TableColumn text="Téléphone" fx:id="phoneColumn" minWidth="150"/>
+                <TableColumn text="Date de naissance" fx:id="dobColumn" minWidth="150"/>
             </columns>
         </TableView>
 
@@ -37,6 +37,7 @@
             <Button text="Modifier" onAction="#handleEditStudent" minWidth="120"/>
             <Button text="Supprimer" onAction="#handleDeleteStudent" minWidth="120"/>
             <Button text="Rafraîchir" onAction="#handleRefresh" minWidth="120"/>
+            <Button text="Voir Profil" onAction="#handleViewProfile" minWidth="120"/>
         </HBox>
     </VBox>
 </AnchorPane>

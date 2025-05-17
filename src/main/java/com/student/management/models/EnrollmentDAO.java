@@ -75,4 +75,19 @@ public class EnrollmentDAO {
         return false;
     }
 
+    // Method to get total enrollments
+    public static int getTotalEnrollments() {
+        try (Connection connection = DBConnection.getConnection()) {
+            String query = "SELECT COUNT(*) FROM enrollments";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

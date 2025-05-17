@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.student.management.controllers.StudentProfileController"
+            style="-fx-padding: 20;">
+
+    <VBox alignment="TOP_CENTER" spacing="20"
+          style="-fx-padding: 20; -fx-background-color: #F9F9F9; -fx-border-radius: 10;">
+        <Label text="Student Profile" style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+
+        <ImageView fx:id="profileImage" fitWidth="150" fitHeight="150"
+                   style="-fx-border-color: #DDD; -fx-background-color: #EEE; -fx-border-radius: 75px;"/>
+        <Button text="Upload Picture" onAction="#handleUploadPicture"
+                style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <GridPane vgap="10" hgap="15" style="-fx-padding: 20;">
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" />
+                <ColumnConstraints minWidth="200" />
+            </columnConstraints>
+
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-background-color: #FFFFFF;"/>
+
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-color: #FFFFFF;"/>
+
+            <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-background-color: #FFFFFF;"/>
+
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="3" style="-fx-background-color: #FFFFFF;"/>
+
+            <Label text="Parent/Guardian:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="parentNameField" GridPane.columnIndex="1" GridPane.rowIndex="4" style="-fx-background-color: #FFFFFF;"/>
+
+            <Label text="Parent Phone:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="parentPhoneField" GridPane.columnIndex="1" GridPane.rowIndex="5" style="-fx-background-color: #FFFFFF;"/>
+        </GridPane>
+
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Save Changes" onAction="#handleSaveChanges"
+                    style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button text="Close" onAction="#handleClose"
+                    style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

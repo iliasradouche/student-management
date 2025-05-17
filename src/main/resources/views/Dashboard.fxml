@@ -43,10 +43,34 @@
 
     <!-- Main Content Section -->
     <center>
-        <AnchorPane fx:id="ContentPane" style="-fx-padding: 20;">
-            <Label text="Bienvenue dans le système de gestion des étudiants"
-                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
-        </AnchorPane>
+        <VBox spacing="20" style="-fx-padding: 20;">
+            <!-- Statistics Section -->
+            <HBox spacing="30" alignment="CENTER" style="-fx-background-color: #ECEFF4; -fx-padding: 15; -fx-border-radius: 10;">
+                <VBox alignment="CENTER">
+                    <Label text="Total Students" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label fx:id="totalStudentsLabel" text="0" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER">
+                    <Label text="Total Courses" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label fx:id="totalCoursesLabel" text="0" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+                <VBox alignment="CENTER">
+                    <Label text="Total Enrollments" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label fx:id="totalEnrollmentsLabel" text="0" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Refresh Button -->
+            <Button text="Rafraîchir les Statistiques" onAction="#refreshStatistics"
+                    style="-fx-background-color: #5E81AC; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20;"/>
+
+            <!-- Dynamic Content Section -->
+            <AnchorPane fx:id="ContentPane" style="-fx-padding: 20;">
+                <Label text="Bienvenue dans le système de gestion des étudiants"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            </AnchorPane>
+
+        </VBox>
     </center>
 
 </BorderPane>
